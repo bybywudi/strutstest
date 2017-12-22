@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0//EN" "http://struts.apache.org/dtds/xwork-validator-1.0.dtd">
+ 
+<validators>
+		<field name="username">
+			<field-validator type="requiredstring">
+				<param name="trim">true</param>
+				<message>用户名不能为空</message>
+			</field-validator>
+			<field-validator type="regex">
+				<param name="regex"><![CDATA[(\w{4,25})]]></param>
+				<message>只能为4-25位的字母和数字</message>
+			</field-validator>
+		</field>
+		
+		<field name="password">
+			<field-validator type="requiredstring">
+				<param name="trim">true</param>
+				<message>密码不能为空</message>
+			</field-validator>
+			<field-validator type="regex">
+				<param name="regex"><![CDATA[(\w{4,25})]]></param>
+				<message>只能为4-25位的字母和数字</message>
+			</field-validator>
+		</field>
+		
+		<field name="birthday">
+			<field-validator type="date">
+				<param name="min">1900-01-01</param>
+				<param name="max">2050-02-21</param>
+				<message>生日必须在${min}到${max}之间</message>
+			</field-validator>
+		</field>
+		
+		<!--
+		<field name="email">
+			<field-validator type="requiredstring">
+				<param name="trim">true</param>
+				<message>邮箱不能为空</message>
+			</field-validator>
+			<field-validator type="regex">
+				<param name="regex"><![[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$]]></param>
+				<message>邮箱格式错误</message>
+			</field-validator>
+		</field>
+		-->
+</validators>
+
+

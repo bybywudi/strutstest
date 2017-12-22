@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="GBK" ?>
+
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<!-- START SNIPPET: xworkSample -->
+<struts>
+<package name="default" extends="struts-default" namespace="/">
+
+<action name="hello">
+<!-- 这里需要注意Result并不需要 '/'这个符号 否则会出现404这样的错误自己找了好久才找到 -->
+<result>hello.jsp</result>
+</action>
+
+<action name="*">
+	<result>/WEB-INF/content/{1}.jsp</result>
+</action>
+
+<action name="login" class="strutstest.action.LoginAction">
+	<result name="error">/WEB-INF/content/error.jsp</result>
+	<result name="success">/WEB-INF/content/welcome.jsp</result>
+	<result name="input">/WEB-INF/content/loginForm.jsp</result>
+</action>
+
+<action name="regist" class="strutstest.action.RegistAction">
+	<result name="input">/WEB-INF/content/registForm.jsp</result>
+	<result name="success">/WEB-INF/content/welcome.jsp</result>
+</action>
+
+</package>
+<constant name="struts.custom.i18n.resources" value="mess"/>
+<constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+<constant name="struts.devMode" value="true"/>
+</struts>
+
+<!-- END SNIPPET: xworkSample -->
